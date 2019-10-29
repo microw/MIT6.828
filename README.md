@@ -6,22 +6,27 @@
 我们已经为你在Athena machine上建立了相应的编译器和模拟器。你可以通过运行 add -f 6.828 来使用它们。每次登录你都必须运行此命令(或者将它添加到环境变量)。如果你在编译或运行qemu时得到模糊的错误,请首先检查是否将课程资源添加到了环境变量  
 
 获取本Xv6 lab的资源，并检查util分支：  
-`$ git clone git://github.com/mit-pdos/xv6-riscv-fall19.git  
+
+$ git clone git://github.com/mit-pdos/xv6-riscv-fall19.git  
 Cloning into 'xv6-riscv'...  
 ...  
 $ cd xv6-riscv-fall19  
-$ git checkout util`  
+$ git checkout util  
+
 为了使lab更加简单，xv6-riscv-fall19代码仓库和书中的xv6-riscv只有轻微的不同  
 
 在本实验中你使用的文件是分布式的，通过使用Git版本控制系统。你要为你的答案创建一个新的分支（git branch util）。你可以通过[Git用户手册](http://www.kernel.org/pub/software/scm/git/docs/user-manual.html)来学习更多关于Git的知识。[CS-oriented overview of Git](http://eagain.net/articles/git-for-computer-scientists/)或许也是有用的。Git允许您跟踪您对代码的更改。举个例子,如果你完成了一个练习,和想提交你的变更,你可以通过运行以下内容提交你的修改:  
+
 `$ git commit -am 'my solution for util lab exercise 1'  
 Created commit 60d2135: my solution for util lab exercise 1  
  1 files changed, 1 insertions(+), 0 deletions(-)  
 $`  
+
 你可以使用git diff命令跟踪你的更改。运行git diff将显示你从上次提交过后更改的代码,“git diff origin/xv6-riscv-fall19”将会显示自初始版本以来改变过的代码。origin/xv6-riscv-fall19就是你下载课程初始代码的分支的名字。  
 
 在Athena上build Xv6：  
-`$ make  
+
+$ make  
 riscv64-linux-gnu-gcc    -c -o kernel/entry.o kernel/entry.S  
 riscv64-linux-gnu-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/start.o kernel/start.c  
 ...  
@@ -36,10 +41,10 @@ hart 0 starting
 hart 2 starting  
 hart 1 starting  
 init: starting sh  
-$`  
+$  
 
 如果你在命令行输入ls,应该会看到类似于下面的输出:  
-`$ ls  
+$ ls  
 .              1 1 1024  
 ..             1 1 1024  
 README         2 2 2181  
@@ -59,7 +64,7 @@ usertests      2 15 106264
 wc             2 16 22160  
 zombie         2 17 19376  
 cow            2 18 27152  
-console        3 19 0`  
+console        3 19 0  
 
 这些就是在初始mkfs文件系统中包含的程序文件。你只是运行了其中一个：ls  
 
@@ -67,7 +72,7 @@ console        3 19 0`
 
 # 提交程序  
 你将使用[提交网站](https://6828.scripts.mit.edu/2019/handin.py/)来提交你的作业。在你提交作业或实验前，你需要从网站上申请一个API key。实验代码采用GNU Make规则来简化提交。在你最后的更改提交后,输入 make handin 提交你的实验。  
-`$ git commit -am "ready to submit my lab"  
+$ git commit -am "ready to submit my lab"  
 [util c2e3c8b] ready to submit my lab  
  2 files changed, 18 insertions(+), 2 deletions(-)  
 
@@ -78,7 +83,7 @@ Please enter your API key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current  
                                  Dload  Upload   Total   Spent    Left  Speed  
 100 50199  100   241  100 49958    414  85824 --:--:-- --:--:-- --:--:-- 85986  
-$`  
+$  
 
 make handin 将会把API key存在 myapi.key中。如果你需要改变API key，删除这个文件，然后执行 make handin 再生成一个就可以了（myapi.key不能有换行符）  
 
